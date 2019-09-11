@@ -18,7 +18,7 @@ export class AuthService {
 
   /** ตอนโหลดหน้าเว็บตรวจสอบจาก localStorage ว่า login อยู่หรือไม่  */
   checkLogin() {
-    if (localStorage.getItem('username')) {
+    if (localStorage.getItem('Auth')) {
       this.loginStatus.next(true);
       this.route.navigate(['/', 'dashboard']);
     } else {
@@ -39,7 +39,7 @@ export class AuthService {
 
   /** logout function */
   onLogOut() {
-    localStorage.removeItem('username');
+    localStorage.removeItem('Auth');
     this.loginStatus.next(false);
     this.route.navigateByUrl('/login');
   }

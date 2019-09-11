@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+declare const $: any;
 
 @Component({
   selector: 'app-logout-modal',
@@ -17,6 +18,7 @@ export class LogoutModalComponent implements OnInit {
 
   onLogout() {
     this.authService.onLogOut();
+    $('#logoutModal').modal('hide');
   }
 
 }

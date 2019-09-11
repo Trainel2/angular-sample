@@ -4,9 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
-
-// CommonJS
-// const Swal = require('sweetalert2');
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +21,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private route: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -37,18 +36,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     this.authService.onLogin(this.form.value).subscribe(
       (res) => {
         this.response = res;
         if (this.response.status === 'success') {
-          localStorage.setItem('username', JSON.stringify(res));
+          localStorage.setItem('Auth', JSON.stringify(res));
           Swal.fire({
             title: '',
-            text: this.response.message,
+            text: 'Welcome ' + this.response.fullname,
             type: this.response.status,
             timer: 2000
           });
-
           this.authService.loginStatus.next(true);
           this.route.navigate(['/', 'dashboard']);
         } else {
@@ -58,11 +57,11 @@ export class LoginComponent implements OnInit {
             type: this.response.status,
           });
         }
+        this.spinner.hide();
       },
       (err) => {
         console.log(err);
       }
     );
   }
-
 }
