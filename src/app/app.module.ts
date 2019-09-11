@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MainDirective } from './directives/main.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ScrollToTopComponent,
     LogoutModalComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MainDirective
   ],
   imports: [
     BrowserModule,
