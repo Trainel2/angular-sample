@@ -25,12 +25,14 @@
             "styles": [
               "src/assets/css/sb-admin-2.min.css",
               "src/assets/css/all.min.css",
+              "node_modules/sweetalert2/dist/sweetalert2.css",
               "src/styles.css"
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/bootstrap.bundle.min.js",
               "src/assets/js/jquery.easing.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
               "src/assets/js/sb-admin-2.js"
             ],
             "es5BrowserSupport": true

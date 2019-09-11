@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   }
 
   gotoLogin() {
-    this.route.navigate(['/', '/login']);
+    this.route.navigate(['/', 'login']);
   }
 
 }

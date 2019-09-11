@@ -16,7 +16,7 @@ export class AuthService {
     private route: Router
   ) { }
 
-  /** check localStorage is login ? */
+  /** ตอนโหลดหน้าเว็บตรวจสอบจาก localStorage ว่า login อยู่หรือไม่  */
   checkLogin() {
     if (localStorage.getItem('username')) {
       this.loginStatus.next(true);
@@ -26,6 +26,7 @@ export class AuthService {
     }
   }
 
+  /** สถานะการ Login */
   isLogin() {
     return this.loginStatus.value;
   }
@@ -38,8 +39,9 @@ export class AuthService {
 
   /** logout function */
   onLogOut() {
-    this.route.navigateByUrl('/login');
+    localStorage.removeItem('username');
     this.loginStatus.next(false);
+    this.route.navigateByUrl('/login');
   }
 
 

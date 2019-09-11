@@ -12,13 +12,12 @@ export class AppComponent {
   isLogin: boolean;
   constructor(
     private authService: AuthService,
-    private route: Router
   ) {
     this.authService.checkLogin();
   }
 
-  onAdtivate(component: any) {
-    console.log(component);
+  onAdtivate() {
+    // ตรวจสอบสถานะการ Login
     this.isLogin = this.authService.isLogin();
   }
 }
