@@ -20,7 +20,6 @@ export class AuthService {
   checkLogin() {
     if (localStorage.getItem('Auth')) {
       this.loginStatus.next(true);
-      this.route.navigate(['/', 'dashboard']);
     } else {
       this.route.navigate(['/', 'login']);
     }

@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'employee-form', component: EmployeeFormComponent },
   { path: 'section', component: SectionListComponent },
   { path: 'section-form', component: SectionFormComponent },
+  { path: 'section-form/:id', component: SectionFormComponent },
 ];
 
 @NgModule({

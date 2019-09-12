@@ -1,3 +1,16 @@
-<p>
-  section-form works!
-</p>
+<app-card cardHeader="Form Section">
+  <div class="row">
+    <div class="col-sm-6">
+      <form [formGroup]="form" (submit)="onSubmit()" [noValidate]="false">
+        <div class="form-group">
+          <label>Section Name</label>
+          <input type="text" class="form-control" formControlName="sectionName" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</app-card>
+
+
+<app-spinner></app-spinner>

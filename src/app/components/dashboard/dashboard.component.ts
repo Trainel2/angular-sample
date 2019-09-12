@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   constructor(
-    private route: Router
+    private route: Router,
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
@@ -17,6 +19,13 @@ export class DashboardComponent implements OnInit {
 
   gotoLogin() {
     this.route.navigate(['/', 'login']);
+  }
+
+  test() {
+    this.spinner.show();
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
   }
 
 }

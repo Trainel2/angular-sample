@@ -1,3 +1,28 @@
-<p>
-  section-list works!
-</p>
+<app-card cardHeader="Section">
+  <div class="mb-4">
+    <a [routerLink]="['/setting/section-form']" class="btn btn-success">Add Section</a>
+  </div>
+
+  <table class="table datatable">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Section Name</th>
+        <th scope="col">Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of sectionList; let i=index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.section_name }}</td>
+        <td>
+          <a [routerLink]="['/setting/section-form', item.section_id]" class="btn btn-warning">Edit</a>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</app-card>
+
+<app-spinner></app-spinner>

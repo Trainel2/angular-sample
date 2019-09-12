@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shareds/shared.module';
+
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { TopbarComponent } from './layout/topbar/topbar.component';
@@ -10,11 +11,7 @@ import { ScrollToTopComponent } from './layout/scroll-to-top/scroll-to-top.compo
 import { LogoutModalComponent } from './layout/logout-modal/logout-modal.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { MainDirective } from './directives/main.directive';
+
 
 @NgModule({
   declarations: [
@@ -26,16 +23,11 @@ import { MainDirective } from './directives/main.directive';
     LogoutModalComponent,
     LoginComponent,
     DashboardComponent,
-    MainDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgxSpinnerModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
