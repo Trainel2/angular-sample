@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(
     private httpClient: HttpClient,
-    private route: Router
+    private router: Router
   ) { }
 
   /** ตอนโหลดหน้าเว็บตรวจสอบจาก localStorage ว่า login อยู่หรือไม่  */
@@ -21,7 +21,7 @@ export class AuthService {
     if (localStorage.getItem('Auth')) {
       this.loginStatus.next(true);
     } else {
-      this.route.navigate(['/', 'login']);
+      this.router.navigate(['/', 'login']);
     }
   }
 
@@ -40,7 +40,7 @@ export class AuthService {
   onLogOut() {
     localStorage.removeItem('Auth');
     this.loginStatus.next(false);
-    this.route.navigateByUrl('/login');
+    this.router.navigateByUrl('/login');
   }
 
 

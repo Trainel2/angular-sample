@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SectionService } from '../services/section.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ISection } from '../models/section';
+import { Subscription } from 'rxjs';
 declare const $: any;
 
 @Component({
@@ -9,9 +10,10 @@ declare const $: any;
   templateUrl: './section-list.component.html',
   styleUrls: ['./section-list.component.css']
 })
-export class SectionListComponent implements OnInit {
+export class SectionListComponent implements OnInit, OnDestroy {
 
   sectionList: ISection[];
+  subSectionList: Subscription;
 
   constructor(
     private sectionService: SectionService,
@@ -22,9 +24,13 @@ export class SectionListComponent implements OnInit {
     this.getDataSectionList();
   }
 
+  ngOnDestroy() {
+    this.subSectionList.unsubscribe();
+  }
+
   getDataSectionList() {
     this.spinner.show();
-    this.sectionService.listSection().subscribe(
+    this.subSectionList = this.sectionService.listSection().subscribe(
       (res) => {
         this.sectionList = res.data;
       },

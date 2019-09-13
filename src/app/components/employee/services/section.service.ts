@@ -20,4 +20,10 @@ export class SectionService {
   insertSection(value: ISection) {
     return this.http.post(this.apiUrl, value);
   }
+
+  getSectionByID(id: string) {
+    return this.http.get<ISectionStatus>(this.apiUrl, { params: { id } });
+  }
+
+
 }
